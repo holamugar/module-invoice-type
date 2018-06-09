@@ -1,0 +1,7 @@
+{
+    "name": "mugar/module-invoice-type",
+    "description": "Permite la seleccion del tipo de factura a emitir en el checkout.",
+    "type": "magento2-module",
+    "license": "MIT",
+    "require": {}
+}
