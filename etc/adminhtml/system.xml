@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+
+        <section id="mugar_invoice_type_config" translate="label" sortOrder="306" showInDefault="1" showInWebsite="1" showInStore="0">
+            <class>separator-top</class>
+            <label>Invoice Type</label>
+            <tab>sales</tab>
+            <resource>Mugar_InvoiceType::configuration</resource>
+
+            <group id="mugar_invoice_type_group" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Invoice Type Configuration</label>
+                <field id="enable_invoice_selector" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Show invoice selector in checkout</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="seller_category" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>IVA Register Condition</label>
+                    <source_model>Mugar\InvoiceType\Model\Config\Source\SellerCategory</source_model>
+                    <depends>
+                        <field id="enable_invoice_selector">1</field>
+                    </depends>
+                </field>
+                <field id="invoice_type" translate="label" type="multiselect" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enable Invoice Types</label>
+                    <source_model>Mugar\InvoiceType\Model\Config\Source\InvoiceType</source_model>
+                    <depends>
+                        <field id="enable_invoice_selector">1</field>
+                    </depends>
+                </field>
+            </group>
+
+        </section>
+    </system>
+</config>
