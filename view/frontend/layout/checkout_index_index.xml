@@ -1,4 +1,5 @@
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="checkout.root">
             <arguments>
@@ -8,15 +9,35 @@
                             <item name="children" xsi:type="array">
                                 <item name="steps" xsi:type="array">
                                     <item name="children" xsi:type="array">
-                                        <!-- The new step you add -->
-                                        <item name="invoice-type-step" xsi:type="array">
-                                            <item name="component" xsi:type="string">Mugar_InvoiceType/js/view/invoice-type-step-view</item>
-                                            <!--To display step content before shipping step "sortOrder" value should be < 1-->
-                                            <!--To display step content between shipping step and payment step  1 < "sortOrder" < 2 -->
-                                            <!--To display step content after payment step "sortOrder" > 2 -->
-                                            <item name="sortOrder" xsi:type="string">1</item>
+                                        <item name="billing-step" xsi:type="array">
                                             <item name="children" xsi:type="array">
-                                                <!--add here child component declaration for your step-->
+                                                <item name="payment" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+
+                                                        <item name="afterMethods" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <!-- Your form declaration here -->
+                                                                <item name="invoice-type-container" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Mugar_InvoiceType/js/view/invoice-type-form</item>
+                                                                    <item name="children" xsi:type="array" />
+                                                                </item>
+                                                                <!-- end form declaration -->
+                                                            </item>
+                                                        </item>
+
+                                                        <item name="payments-list" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="invoice-type" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Mugar_InvoiceType/js/view/invoice-form</item>
+                                                                    <item name="displayArea" xsi:type="string">before-place-order</item>
+                                                                    <item name="dataScope" xsi:type="string">checkoutcomment</item>
+                                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                                    <item name="children" xsi:type="array" />
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
                                             </item>
                                         </item>
                                     </item>

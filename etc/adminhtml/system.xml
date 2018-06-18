@@ -4,7 +4,7 @@
 
         <section id="mugar_invoice_type_config" translate="label" sortOrder="306" showInDefault="1" showInWebsite="1" showInStore="0">
             <class>separator-top</class>
-            <label>Invoice Type</label>
+            <label>Invoicing</label>
             <tab>sales</tab>
             <resource>Mugar_InvoiceType::configuration</resource>
 
